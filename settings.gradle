@@ -1,0 +1,4 @@
+rootProject.name = 'logmond'
+
+if(file('../java-default').exists()) includeBuild '../java-default'
+if(file('../java-lwjsd').exists()) includeBuild '../java-lwjsd'
