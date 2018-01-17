@@ -2,7 +2,6 @@
 plugins {
 	id "java"
 	id "jacoco"
-	id "maven-publish"
 	id "eclipse"
 	id "org.sonarqube" version "2.6.1"
 }
@@ -24,6 +23,10 @@ targetCompatibility = JavaVersion.VERSION_1_9
 
 repositories {
 	jcenter()
+	maven { url "https://oss.jfrog.org/libs-release/" }
+	if(snapshotBuild) {
+		maven { url "https://oss.jfrog.org/libs-snapshot/" }
+	}
 }
 
 dependencies {
