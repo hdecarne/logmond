@@ -3,17 +3,17 @@ plugins {
 	id "java"
 	id "jacoco"
 	id "eclipse"
-	id "org.sonarqube" version "2.6.1"
+	id "org.sonarqube" version "2.6.2"
 }
 // Build helpers
 def snapshotBuild = project.version.endsWith("-SNAPSHOT")
 
 def resolveProperty(propertyName, envName) {
 	def resolved = (project.findProperty(propertyName) ?: System.getenv(envName));
-	
+
 	if(resolved == null) {
 		throw new GradleException("Missing property/environment variable: '${propertyName}'/'${envName}")
-	} 
+	}
 	return resolved; 
 }
 
@@ -30,8 +30,16 @@ repositories {
 }
 
 dependencies {
-	compile("de.carne.common:java-lwjsd:0-SNAPSHOT")
-	testCompile("junit:junit:4.12")
+	compile("de.carne.common:java-default:8.+")
+	compile("de.carne.common:java-lwjsd-api:0.+")
+	testImplementation("de.carne.common:java-lwjsd-runtime:0.+")
+	testImplementation("org.junit.jupiter:junit-jupiter-api:5.1.+")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.1.+")
+	testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.0.+")
+}
+
+test {
+	useJUnitPlatform()
 }
 
 jacoco {
