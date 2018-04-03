@@ -16,10 +16,10 @@
  */
 package de.carne.logmond;
 
+import de.carne.boot.logging.Log;
 import de.carne.lwjsd.api.Service;
 import de.carne.lwjsd.api.ServiceContext;
 import de.carne.lwjsd.api.ServiceException;
-import de.carne.util.logging.Log;
 
 /**
  * LogmonD {@linkplain Service} class.
@@ -30,12 +30,12 @@ public class LogmondService implements Service {
 
 	@Override
 	public void start(ServiceContext context) throws ServiceException {
-		LOG.info("Starting LogMonD...");
+		LOG.info("Starting Logmond...");
 	}
 
 	@Override
 	public void stop(ServiceContext context) throws ServiceException {
-		LOG.info("Stoping LogMonD...");
+		LOG.info("Stoping Logmond...");
 	}
 
 }
