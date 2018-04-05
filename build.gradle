@@ -30,12 +30,11 @@ repositories {
 }
 
 dependencies {
-	compile("de.carne.common:java-default:8.+")
-	compile("de.carne.common:java-lwjsd-api:0.+")
-	testImplementation("de.carne.common:java-lwjsd-runtime:0.+")
-	testImplementation("org.junit.jupiter:junit-jupiter-api:5.1.+")
-	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.1.+")
-	testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.0.+")
+	compile("de.carne.common:java-lwjsd-api:0.4.0-SNAPSHOT")
+	testImplementation("de.carne.common:java-lwjsd-runtime:0.4.0-SNAPSHOT")
+	testImplementation("org.junit.jupiter:junit-jupiter-api:5.1.0")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.1.0")
+	testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.0.3")
 }
 
 test {
