@@ -7,7 +7,7 @@ addons:
     organization: "hdecarne-github"
 
 jdk:
-  - oraclejdk9
+  - oraclejdk10
 
 os:
   - linux
