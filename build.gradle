@@ -18,8 +18,8 @@ def resolveProperty(propertyName, envName) {
 }
 
 // Project
-sourceCompatibility = JavaVersion.VERSION_1_9
-targetCompatibility = JavaVersion.VERSION_1_9
+sourceCompatibility = JavaVersion.VERSION_1_10
+targetCompatibility = JavaVersion.VERSION_1_10
 
 repositories {
 	if(snapshotBuild) {
@@ -35,7 +35,6 @@ dependencies {
 	testImplementation("de.carne.common:java-lwjsd-runtime:0.4.0-SNAPSHOT")
 	testImplementation("org.junit.jupiter:junit-jupiter-api:5.2.0")
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.2.0")
-	testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.2.0")
 }
 
 test {
@@ -43,7 +42,7 @@ test {
 }
 
 jacoco {
-	toolVersion = "0.8.1"
+	toolVersion = "0.8.2"
 }
 
 jacocoTestReport {
