@@ -1,6 +1,6 @@
 // Plugins
 plugins {
-	id "java"
+	id "java-library"
 	id "jacoco"
 	id "eclipse"
 	id "org.sonarqube" version "2.6.2"
@@ -12,7 +12,7 @@ def resolveProperty(propertyName, envName) {
 	def resolved = (project.findProperty(propertyName) ?: System.getenv(envName));
 
 	if(resolved == null) {
-		throw new GradleException("Missing property/environment variable: '${propertyName}'/'${envName}")
+		throw new GradleException("Missing property/environment variable: '${propertyName}'/'${envName}'")
 	}
 	return resolved; 
 }
@@ -31,10 +31,10 @@ repositories {
 }
 
 dependencies {
-	compile("de.carne.common:java-lwjsd-api:0.4.0-SNAPSHOT")
-	testImplementation("de.carne.common:java-lwjsd-runtime:0.4.0-SNAPSHOT")
-	testImplementation("org.junit.jupiter:junit-jupiter-api:5.2.0")
-	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.2.0")
+	implementation(group: "de.carne.common", name: "java-lwjsd-api", version: "0.4.0-SNAPSHOT")
+	implementation(group: "org.junit.jupiter", name: "junit-jupiter-api", version: "5.3.1")
+	testRuntimeOnly(group: "org.junit.jupiter", name: "junit-jupiter-engine", version: "5.3.1")
+	testImplementation(group: "de.carne.common", name: "java-lwjsd-runtime", version: "0.4.0-SNAPSHOT")
 }
 
 test {
