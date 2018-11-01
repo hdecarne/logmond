@@ -18,8 +18,8 @@ def resolveProperty(propertyName, envName) {
 }
 
 // Project
-sourceCompatibility = JavaVersion.VERSION_1_10
-targetCompatibility = JavaVersion.VERSION_1_10
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
 
 repositories {
 	if(snapshotBuild) {
@@ -58,5 +58,22 @@ eclipse {
 	classpath {
 		downloadSources = true
 		downloadJavadoc = true
+		file {
+			whenMerged {
+				def eeaPath = project.findProperty("eclipse.eeaPath");
+				 
+				entries.forEach {
+					if(it.path.startsWith("org.eclipse.jdt.launching.JRE_CONTAINER")) {
+						if(eeaPath != null) {
+							it.entryAttributes.put("annotationpath", eeaPath)
+						}
+					} else if(it.path.contains("/caches/modules-2/")) {
+						if(eeaPath != null) {
+							it.entryAttributes.put("annotationpath", eeaPath)
+						}
+					}
+				}
+			}
+		}
 	}
 }
