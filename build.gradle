@@ -32,8 +32,8 @@ repositories {
 
 dependencies {
 	implementation(group: "de.carne.common", name: "java-lwjsd-api", version: "0.4.0-SNAPSHOT")
-	implementation(group: "org.junit.jupiter", name: "junit-jupiter-api", version: "5.3.1")
-	testRuntimeOnly(group: "org.junit.jupiter", name: "junit-jupiter-engine", version: "5.3.1")
+	implementation(group: "org.junit.jupiter", name: "junit-jupiter-api", version: "5.4.0-M1")
+	testRuntimeOnly(group: "org.junit.jupiter", name: "junit-jupiter-engine", version: "5.4.0-M1")
 	testImplementation(group: "de.carne.common", name: "java-lwjsd-runtime", version: "0.4.0-SNAPSHOT")
 }
 
