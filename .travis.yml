@@ -16,8 +16,13 @@ os:
 git:
   depth: false  
   
-script:
-  - ./gradlew --stacktrace build sonarqube
+install: ./gradlew --refresh-dependencies clean assemble
+
+before_script: if [[ -e "./.travis/$TRAVIS_OS_NAME/before_script.sh" ]]; then bash -x ./.travis/$TRAVIS_OS_NAME/before_script.sh; fi
+
+script: ./gradlew --stacktrace build
+
+after_success: if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./gradlew --stacktrace sonarqube checkDependencyVersions; fi
 
 notifications:
   email: false 
