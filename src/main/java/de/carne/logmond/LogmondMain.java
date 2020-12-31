@@ -16,16 +16,18 @@
  */
 package de.carne.logmond;
 
-/**
- * 
- */
-public class LogmondService {
+import de.carne.util.logging.Log;
+import io.micronaut.runtime.Micronaut;
 
-	/**
-	 * 
-	 */
-	public LogmondService() {
-		// TODO Auto-generated constructor stub
+/**
+ * Logmond main class.
+ */
+public class LogmondMain {
+
+	private static final Log LOG = new Log();
+
+	public static void main(String[] args) {
+		Micronaut.run(args).close();
 	}
 
 }
