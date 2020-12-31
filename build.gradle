@@ -5,6 +5,7 @@ plugins {
 	id "eclipse"
 	id "de.carne.java-tools" version "0.9.0"
 	id "org.sonarqube" version "3.0"
+	id "com.diffplug.eclipse.apt" version "3.22.0"
 }
 // Build helpers
 def snapshotBuild = project.version.endsWith("-SNAPSHOT")
@@ -29,11 +30,12 @@ repositories {
 }
 
 dependencies {
-	compileOnly(group: "org.eclipse.jdt", name: "org.eclipse.jdt.annotation", version: project.annotationVersion)
-	testCompileOnly(group: "org.eclipse.jdt", name: "org.eclipse.jdt.annotation", version: project.annotationVersion)
-	implementation(group: "de.carne.common", name: "java-lwjsd-api", version: project.javaLwjsdVersion)
-	implementation(group: "de.carne.common", name: "java-test", version: project.javaTestVersion)
-	testImplementation(group: "de.carne.common", name: "java-lwjsd-runtime", version: project.javaLwjsdVersion)
+    annotationProcessor(group: "io.micronaut", name: "micronaut-inject-java", version: project.micronautVersion)
+	implementation(group: "org.eclipse.jdt", name: "org.eclipse.jdt.annotation", version: project.annotationVersion)
+	implementation(group: "de.carne.common", name: "java-default", version: project.javaDefaultVersion)
+    implementation(group: "io.micronaut", name: "micronaut-runtime", version: project.micronautVersion)
+    implementation(group: "org.slf4j", name: "slf4j-jdk14", version: project.slf4jVersion)
+    testAnnotationProcessor(group: "io.micronaut", name: "micronaut-inject-java", version: project.micronautVersion)
 }
 
 test {
